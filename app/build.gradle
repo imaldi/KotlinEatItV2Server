@@ -52,4 +52,10 @@ dependencies {
     //31
     implementation 'com.firebaseui:firebase-ui-auth:5.1.0'
     implementation 'com.github.d-max:spots-dialog:1.1@aar'
+    //32
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    //33
+    implementation 'com.google.firebase:firebase-storage:19.1.0'
 }
