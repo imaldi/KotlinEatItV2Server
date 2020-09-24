@@ -16,4 +16,6 @@
     <string name="menu_send">Send</string>
     <string name="your_name">Your Name</string>
     <string name="menu_category">Categories</string>
+    <string name="food_name_hint">Food Name</string>
+    <string name="food_price_hint">Food Price</string>
 </resources>

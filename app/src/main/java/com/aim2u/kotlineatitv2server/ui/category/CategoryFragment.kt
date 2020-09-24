@@ -117,7 +117,7 @@ class CategoryFragment : Fragment() {
     }
 
     private fun showUpdateDialog() {
-        val builder = androidx.appcompat.app.AlertDialog.Builder(context!!)
+        val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext())
 
         builder.setTitle("Update Category")
         builder.setMessage("Please Fill Information")
@@ -127,7 +127,7 @@ class CategoryFragment : Fragment() {
         val edtCategoryName = itemView.findViewById<View>(R.id.edt_category_name) as EditText
         imgCategory = itemView.findViewById<View>(R.id.img_category) as ImageView
         edtCategoryName.setText(Common.categorySelected?.name)
-        Glide.with(context!!).load(Common.categorySelected?.image).into(imgCategory)
+        Glide.with(requireContext()).load(Common.categorySelected?.image).into(imgCategory)
 
         imgCategory.setOnClickListener { view ->
             val intent = Intent()

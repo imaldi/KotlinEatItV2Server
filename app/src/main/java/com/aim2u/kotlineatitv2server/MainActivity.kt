@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     if (dataSnapshot.exists()){
                         val userModel = dataSnapshot.getValue(ServerUserModel::class.java)
-                        if(userModel!!.isActive!!){
+                        if(userModel?.isActive!!){
                             goToHomeActivity(userModel)
                         } else {
                             dialog?.dismiss()
@@ -153,11 +153,11 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == APP_REQUEST_CODE){
-
             if(requestCode == Activity.RESULT_OK) {
                 val user = FirebaseAuth.getInstance().currentUser
+
             } else{
-                Toast.makeText(this,"Failed to sign in",Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this,"Failed to sign in",Toast.LENGTH_SHORT).show()
             }
         }
     }
