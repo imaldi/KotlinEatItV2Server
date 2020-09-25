@@ -1,5 +1,6 @@
 package com.aim2u.kotlineatitv2server.ui.category
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
@@ -24,6 +25,7 @@ import com.aim2u.kotlineatitv2server.adapter.MyCategoriesAdapter
 import com.aim2u.kotlineatitv2server.callback.IMyButtonCallback
 import com.aim2u.kotlineatitv2server.common.Common
 import com.aim2u.kotlineatitv2server.common.MySwipeHelper
+import com.aim2u.kotlineatitv2server.eventbus.ToastEvent
 import com.aim2u.kotlineatitv2server.model.CategoryModel
 import com.bumptech.glide.Glide
 import com.google.firebase.database.FirebaseDatabase
@@ -31,6 +33,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.layout_update_category.*
+import org.greenrobot.eventbus.EventBus
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -183,7 +186,17 @@ class CategoryFragment : Fragment() {
             }
             .addOnCompleteListener { task ->
                 categoryViewModel?.loadCategory()
-                Toast.makeText(context,"Update Success",Toast.LENGTH_SHORT).show()
+                EventBus.getDefault().postSticky(ToastEvent(true,false))
             }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK){
+            if(data != null && data.data != null){
+                imageUri = data.data
+                imgCategory.setImageURI(imageUri)
+            }
+        }
     }
 }

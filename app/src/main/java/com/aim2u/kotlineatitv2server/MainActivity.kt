@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         dialog = SpotsDialog.Builder().setContext(this).setCancelable(false).build()
         listener = object : FirebaseAuth.AuthStateListener{
-            override fun onAuthStateChanged(p0: FirebaseAuth) {
+            override fun onAuthStateChanged(firebaseAuth: FirebaseAuth) {
                 val user = firebaseAuth?.currentUser
                 if(user != null){
                     checkServerUserFromFirebase(user)
@@ -157,7 +157,7 @@ class MainActivity : AppCompatActivity() {
                 val user = FirebaseAuth.getInstance().currentUser
 
             } else{
-//                Toast.makeText(this,"Failed to sign in",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Failed to sign in",Toast.LENGTH_SHORT).show()
             }
         }
     }
