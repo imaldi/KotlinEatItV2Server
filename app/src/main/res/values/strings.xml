@@ -15,4 +15,8 @@
     <string name="food_name_hint">Food Name</string>
     <string name="food_price_hint">Food Price</string>
     <string name="menu_sign_out">Sign Out</string>
+    <string name="addon_size_name">Addon / Size Name</string>
+    <string name="addon_size_price">Addon / Size Price</string>
+    <string name="create">Create</string>
+    <string name="edit">Edit</string>
 </resources>
